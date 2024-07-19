@@ -1,0 +1,34 @@
+# Specify the API version for this Kubernetes object
+apiVersion: apps/v1
+# Specify the kind of Kubernetes object (in this case, a Deployment)
+kind: Deployment
+# Metadata section for the Deployment object
+metadata:
+  # Labels to apply to the Deployment object
+  labels:
+    app: test
+  # Name of the Deployment object
+  name: test
+# Specification for the Deployment object
+spec:
+  # Number of replicas (pods) to create for this Deployment
+  replicas: 10
+  # Selector to identify the pods managed by this Deployment
+  selector:
+    matchLabels:
+      app: test
+  # Template for the pods managed by this Deployment
+  template:
+    # Metadata for the pods (left empty here)
+    metadata:
+      # Labels to apply to the pods
+      labels:
+        app: test
+    spec:
+      # Containers to run in the pods
+      containers:
+        # Container specification
+        - image: httpd:alpine3.19
+          name: httpd
+  strategy:
+    type: Recreate

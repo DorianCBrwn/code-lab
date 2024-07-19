@@ -1,0 +1,24 @@
+# Specifies the API version for the Kubernetes object
+apiVersion: v1
+
+# Specifies the type of Kubernetes object being defined
+kind: Pod
+
+# Metadata section for the Pod object
+metadata:
+  # Labels to be applied to the Pod
+  labels:
+    # Label with key 'run' and value 'nginx'
+    run: nginx
+    # Label with key 'method' and value 'fromcode'
+    # Name of the Pod
+  name: nginx-yaml
+# Specification section for the Pod
+spec:
+  # List of containers to be run in the Pod
+  containers:
+    # Container specification
+    - # Docker image to be used for the container
+      image: nginx
+      # Name of the container
+      name: nginx
